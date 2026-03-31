@@ -46,9 +46,7 @@ Is a modular RPG style game built in C++, using object-oriented design, template
           * Dagger damage
   - Abilities System
         - Modify combat
-    
           * Damage dealt and received
-    
           * Health
   - Weapon System
         - Use structs to define weapons
