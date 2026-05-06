@@ -1,11 +1,13 @@
 #ifndef JD_ARCHER_H
 #define JD_ARCHER_H
 #include "characterTpl.h"
+#include "health.h"
+
 
 namespace JD {
 
 	template<typename Weapon_t>
-	class Archer : public characterTpl<seneca::SuperHealth>
+	class Archer : public characterTpl<JD::SuperHealth>
 	{
 		int m_baseDefense{};
 		int m_baseAttack{};
@@ -32,12 +34,12 @@ namespace JD {
 
 	template<typename Weapon_t>
 	int Archer<Weapon_t>::getAttackAmnt() const {
-		return 1.3 * m_baseAttack;
+		return 1.3 * m_baseAttack + static_cast<double>(m_weapon);
 	}
 
 	template<typename Weapon_t>
 	int Archer<Weapon_t>::getDefenseAmnt() const {
-		return 1.2 * m_baseAttack;
+		return 1.2 * m_baseDefense;
 	}
 
 	template<typename Weapon_t>
@@ -74,7 +76,7 @@ namespace JD {
 			dmg = 0;
 		}
 
-		characterTpl<seneca::SuperHealth>::takeDamage(dmg);
+		characterTpl<JDSuperHealth>::takeDamage(dmg);
 	}
 }
 

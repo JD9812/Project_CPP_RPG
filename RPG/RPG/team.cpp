@@ -109,6 +109,7 @@ namespace JD {
 				}
 
 				temp[m_size] = c->clone();
+				temp[m_size]->setHealth(temp[m_size]->getHealthMax());
 
 				delete[] m_members;
 
@@ -125,6 +126,7 @@ namespace JD {
 		if (m_size != 0 && m_members) {
 
 			size_t idx = m_size;
+
 			for (size_t i = 0; i < m_size; ++i) {
 				if (m_members[i] && m_members[i]->getName() == c) {
 					idx = i;
@@ -133,9 +135,9 @@ namespace JD {
 
 			if (idx != m_size) {
 
-				delete m_members[idx];
-
 				if (m_size == 1) {
+
+					delete m_members[idx];
 					delete[] m_members;
 					m_members = nullptr;
 					m_size = 0;
@@ -149,6 +151,7 @@ namespace JD {
 						}
 					}
 
+					delete m_members[idx];
 					delete[] m_members;
 					m_members = temp;
 					--m_size;

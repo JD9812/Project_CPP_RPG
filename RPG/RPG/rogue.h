@@ -12,7 +12,7 @@ namespace JD {
 		int m_baseAttack{};
 		FirstAbility_t m_firstAbility{};
 		SecondAbility_t m_secondAbility{};
-		seneca::Dagger m_weapon[2]{};
+		JD::Dagger m_weapon[2]{};
 
 	public:
 		Rogue(const std::string name, int healthMax, int baseAttack, int baseDefense);

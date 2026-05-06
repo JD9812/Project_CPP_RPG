@@ -5,9 +5,6 @@ namespace JD {
 
 	Guild::~Guild() {
 
-		for (size_t i = 0; i < m_size; ++i) {
-			delete m_members[i];
-		}
 		delete[] m_members;
 
 	}
@@ -26,7 +23,7 @@ namespace JD {
 		else {
 			m_members = new Character * [m_size];
 			for (size_t i = 0; i < m_size; ++i) {
-				m_members[i] = other.m_members[i] ? other.m_members[i]->clone() : nullptr;
+				m_members[i] = other.m_members[i];
 			}
 		}
 
@@ -35,9 +32,6 @@ namespace JD {
 	Guild& Guild::operator=(const Guild& other) {
 		if (this != &other) {
 
-			for (size_t i = 0; i < m_size; ++i) {
-				delete m_members[i];
-			}
 			delete[] m_members;
 
 			m_teamName = other.m_teamName;
@@ -50,7 +44,7 @@ namespace JD {
 				m_members = new Character * [m_size];
 				for (size_t i = 0; i < m_size; ++i) {
 					if (other.m_members[i] != nullptr) {
-						m_members[i] = other.m_members[i]->clone();
+						m_members[i] = other.m_members[i];
 					}
 					else {
 						m_members[i] = nullptr;
@@ -73,9 +67,6 @@ namespace JD {
 	Guild& Guild::operator=(Guild&& other) noexcept {
 		if (this != &other) {
 
-			for (size_t i = 0; i < m_size; ++i) {
-				delete m_members[i];
-			}
 			delete[] m_members;
 
 			m_teamName = std::move(other.m_teamName);
@@ -88,7 +79,7 @@ namespace JD {
 		return *this;
 	}
 
-	void Guild::addMember(const Character* c) {
+	void Guild::addMember(Character* c) {
 
 		if (c)
 		{
@@ -108,7 +99,7 @@ namespace JD {
 					temp[i] = m_members[i];
 				}
 
-				temp[m_size] = c->clone();
+				temp[m_size] = c;
 
 				delete[] m_members;
 
@@ -133,9 +124,8 @@ namespace JD {
 
 			if (idx != m_size) {
 
-				delete m_members[idx];
-
 				if (m_size == 1) {
+
 					delete[] m_members;
 					m_members = nullptr;
 					m_size = 0;

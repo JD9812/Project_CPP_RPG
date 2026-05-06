@@ -22,7 +22,7 @@ namespace JD {
 		Guild& operator=(Guild&& other) noexcept;
 		~Guild();
 
-		void addMember(const Character* c);
+		void addMember(Character* c);
 
 		void removeMember(const std::string& c);
 

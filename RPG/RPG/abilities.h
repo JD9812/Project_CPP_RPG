@@ -60,7 +60,7 @@ namespace JD
 		{
 			// modifies the damage dealt on others
 			--m_cooldown;
-			if (m_cooldown == 0)
+			if (m_cooldown <= 0)
 			{
 				std::cout << "    Fireball has been triggered; increasing damage dealt by 500.\n";
 				dmg += 500; // increases damage by 500
