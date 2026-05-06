@@ -34,7 +34,7 @@ namespace JD {
 
 	template<typename T, typename FirstAbility_t, typename SecondAbility_t>
 	int Rogue<T, FirstAbility_t, SecondAbility_t>::getAttackAmnt() const {
-		return m_baseAttack + (2 * static_cast<double>(m_weapon[0]));
+		return static_cast<int>(m_baseAttack + (2 * static_cast<double>(m_weapon[0])));
 	}
 
 	template<typename T, typename FirstAbility_t, typename SecondAbility_t>

@@ -34,12 +34,12 @@ namespace JD {
 
 	template<typename Weapon_t>
 	int Archer<Weapon_t>::getAttackAmnt() const {
-		return 1.3 * m_baseAttack + static_cast<double>(m_weapon);
+		return static_cast<int>(1.3 * m_baseAttack + static_cast<double>(m_weapon));
 	}
 
 	template<typename Weapon_t>
 	int Archer<Weapon_t>::getDefenseAmnt() const {
-		return 1.2 * m_baseDefense;
+		return static_cast<int>(1.2 * m_baseDefense);
 	}
 
 	template<typename Weapon_t>
@@ -76,7 +76,7 @@ namespace JD {
 			dmg = 0;
 		}
 
-		characterTpl<JDSuperHealth>::takeDamage(dmg);
+		characterTpl<JD::SuperHealth>::takeDamage(dmg);
 	}
 }
 
