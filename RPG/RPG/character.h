@@ -14,7 +14,7 @@ namespace JD
 	public:
 
 		// Initializes character
-		Character(const char* name) : m_name{ name } {}
+		Character(const std::string& name) : m_name{ name } {}
 
 		// Get's characters name
 		const std::string& getName() const { return m_name; }
@@ -54,15 +54,16 @@ namespace JD
 		friend std::ostream& operator<<(std::ostream& out, const Character& c)
 		{
 			out.setf(std::ios::left);
-			out << std::setw(20) << c.m_name << "  ";
+			out << std::setw(15) << c.m_name << "  ";
 			out.unsetf(std::ios::left);
 
 			int health = 100 * c.getHealth() / c.getHealthMax();
 			out << "  Health: " << std::setw(3) << health << "% ";
 			out << '(' << std::setw(4) << c.getHealth() << '/'
-				<< std::setw(4) << c.getHealthMax() << ')';
+				<< std::setw(4) << c.getHealthMax() << ')' << std::endl;
 			out << "  Attack: " << std::setw(4) << c.getAttackAmnt();
 			out << "  Defense: " << std::setw(4) << c.getDefenseAmnt();
+			out << std::endl;
 			return out;
 		}
 	};

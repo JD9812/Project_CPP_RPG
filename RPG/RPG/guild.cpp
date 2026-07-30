@@ -9,12 +9,12 @@ namespace JD {
 
 	}
 
-	Guild::Guild(const std::string name) : m_teamName{ name }, m_members{}, m_size{ 0 } {
+	Guild::Guild(const std::string name) : m_guildName{ name }, m_members{}, m_size{ 0 } {
 	}
 
 	Guild::Guild(const Guild& other) {
 
-		m_teamName = other.m_teamName;
+		m_guildName = other.m_guildName;
 		m_size = other.m_size;
 
 		if (m_size == 0) {
@@ -34,7 +34,7 @@ namespace JD {
 
 			delete[] m_members;
 
-			m_teamName = other.m_teamName;
+			m_guildName = other.m_guildName;
 			m_size = other.m_size;
 
 			if (m_size == 0) {
@@ -56,7 +56,7 @@ namespace JD {
 	}
 
 	Guild::Guild(Guild&& other) noexcept {
-		m_teamName = std::move(other.m_teamName);
+		m_guildName = std::move(other.m_guildName);
 		m_members = other.m_members;
 		m_size = other.m_size;
 
@@ -69,7 +69,7 @@ namespace JD {
 
 			delete[] m_members;
 
-			m_teamName = std::move(other.m_teamName);
+			m_guildName = std::move(other.m_guildName);
 			m_members = other.m_members;
 			m_size = other.m_size;
 
@@ -148,12 +148,12 @@ namespace JD {
 	}
 
 	void Guild::showMembers() const {
-		if (m_teamName.empty()) {
-			std::cout << "No team." << std::endl;
+		if (m_guildName.empty()) {
+			std::cout << "No Guild." << std::endl;
 			return;
 		}
 
-		std::cout << "[Team] " << m_teamName << std::endl;
+		std::cout << "[Guild] " << m_guildName << std::endl;
 
 		for (size_t i = 0; i < m_size; ++i) {
 			std::cout << "    " << (i + 1) << ": ";

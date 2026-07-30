@@ -32,7 +32,7 @@ namespace JD {
 
 	template<typename T>
 	characterTpl<T>::characterTpl(std::string name, int maxHealth)
-		: Character{ name.c_str() },
+		: Character{ name},
 		m_healthMax{ maxHealth },
 		m_health{}
 	{

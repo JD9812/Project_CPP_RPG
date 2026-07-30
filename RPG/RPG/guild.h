@@ -7,7 +7,7 @@ namespace JD {
 
 	class Guild
 	{
-		std::string m_teamName{};
+		std::string m_guildName{};
 		Character** m_members{};
 		size_t m_size{};
 
